@@ -1,0 +1,13 @@
+@host = http://localhost:8080
+
+### Health check
+GET {{host}}/health
+
+### Create user
+POST {{host}}/users
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "john.doe@example.com"
+}
