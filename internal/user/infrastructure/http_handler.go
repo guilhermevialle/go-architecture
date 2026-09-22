@@ -13,15 +13,15 @@ type CreateUserRequest struct {
 	Email string `json:"email"`
 }
 
-type UserController struct {
+type UserHttpHandler struct {
 	createUser *application.CreateUser
 }
 
-func NewUserController(createUser *application.CreateUser) *UserController {
-	return &UserController{createUser: createUser}
+func NewUserHttpHandler(createUser *application.CreateUser) *UserHttpHandler {
+	return &UserHttpHandler{createUser: createUser}
 }
 
-func (c *UserController) Create(w http.ResponseWriter, r *http.Request) {
+func (c *UserHttpHandler) Create(w http.ResponseWriter, r *http.Request) {
 	var req CreateUserRequest
 	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)

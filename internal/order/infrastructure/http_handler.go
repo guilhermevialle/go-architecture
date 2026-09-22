@@ -13,15 +13,15 @@ type CreateOrderRequest struct {
 	Price  int    `json:"price"`
 }
 
-type OrderController struct {
+type OrderHttpHandler struct {
 	createOrder *application.CreateOrder
 }
 
-func NewOrderController(createOrder *application.CreateOrder) *OrderController {
-	return &OrderController{createOrder: createOrder}
+func NewOrderHttpHandler(createOrder *application.CreateOrder) *OrderHttpHandler {
+	return &OrderHttpHandler{createOrder: createOrder}
 }
 
-func (c *OrderController) Create(w http.ResponseWriter, r *http.Request) {
+func (c *OrderHttpHandler) Create(w http.ResponseWriter, r *http.Request) {
 	var req CreateOrderRequest
 	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)

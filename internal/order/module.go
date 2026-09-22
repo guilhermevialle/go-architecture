@@ -10,7 +10,7 @@ import (
 func NewModule(mux *http.ServeMux) {
 	repo := infrastructure.NewInMemoryOrderRepository()
 	createOrderUC := application.NewCreateOrder(repo)
-	controller := infrastructure.NewOrderController(createOrderUC)
+	httpHandler := infrastructure.NewOrderHttpHandler(createOrderUC)
 
-	infrastructure.RegisterRoutes(mux, controller)
+	infrastructure.RegisterRoutes(mux, httpHandler)
 }
