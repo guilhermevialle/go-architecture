@@ -3,8 +3,8 @@ package user
 import (
 	"net/http"
 
-	"github.com/guilhermevialle/go-architecture/internal/order/infrastructure"
 	"github.com/guilhermevialle/go-architecture/internal/user/application"
+	"github.com/guilhermevialle/go-architecture/internal/user/infrastructure"
 )
 
 func NewModule(mux *http.ServeMux) {

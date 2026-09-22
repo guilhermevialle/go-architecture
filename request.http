@@ -1,7 +1,4 @@
-@host = http://localhost:8080
-
-### Health check
-GET {{host}}/health
+@host = http://localhost:80
 
 ### Create user
 POST {{host}}/users
@@ -10,4 +7,13 @@ Content-Type: application/json
 {
   "name": "John Doe",
   "email": "john.doe@example.com"
+}
+
+### Create order
+POST {{host}}/orders
+Content-Type: application/json
+
+{
+  "userID": "1",
+  "price": 1000
 }
